@@ -27,6 +27,7 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity {
 
     Boolean buttonflg = true;
+    String addstr = "インドネシア";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,7 @@ public class MainActivity extends ActionBarActivity {
         map_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // 明示的intent でMAP起動
-                Uri uri = Uri.parse("geo:0,0?q=東京駅");
+                Uri uri = Uri.parse("geo:0,0?q=" + addstr);
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
 
