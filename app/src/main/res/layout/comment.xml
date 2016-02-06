@@ -15,7 +15,9 @@
             android:layout_weight="1"
             android:layout_marginRight="15dp"
             android:background="#FFFF00"
-            android:text="Shop Evaluation"/>
+            android:text="Shop Evaluation"
+            />
+
         <!--<TextView-->
             <!--android:id="@+id/map"-->
             <!--android:layout_width="100dp"-->

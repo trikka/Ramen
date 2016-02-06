@@ -27,6 +27,7 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity {
 
     Boolean buttonflg = true;
+    // 住所
     String addstr = "インドネシア";
 
     @Override
