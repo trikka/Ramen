@@ -7,6 +7,7 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,20 +21,36 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.w3c.dom.Comment;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    private ListView listComment;
+
+
+
     Boolean buttonflg = true;
-    // 住所
-    String addstr = "インドネシア";
+    // 場所
+    String STRplace = "アボガド";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.comment);
+        // レイアウトインスタンス生成
+        listComment = (ListView) findViewById(R.id.comment_list);
+
+//        CustomAdapter adapter  = new CustomAdapter(this,0,1);
+
+
+//
+//        dataLoadAdapter(adapter);
+//        // ListviewのAdapterへ設定
+//        mListRamen.setAdapter(adapter);
 
         LayoutInflater inflater = (LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
         final View layout = inflater.inflate(R.layout.comment_dialog,(ViewGroup)findViewById(R.id.comment_dialog));
@@ -52,7 +69,7 @@ public class MainActivity extends ActionBarActivity {
         map_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // 明示的intent でMAP起動
-                Uri uri = Uri.parse("geo:0,0?q=" + addstr);
+                Uri uri = Uri.parse("geo:0,0?q=" + STRplace);
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
 
@@ -87,7 +104,7 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(DialogInterface dialog, int which) {
                 // Cancel ボタン処理
                 // 現状 特に無し
-                list_add();
+                comment();
             }
         });
 
@@ -118,15 +135,22 @@ public class MainActivity extends ActionBarActivity {
         listView1.setAdapter(adapter);
     }
 
-    // comment_list
-    private void list_add(){
+    // comment_listsetContentView(R.layout.comment);
+
     // データの作成
-        List<CommentListData> objects = new ArrayList<CommentListData>();
-        CommentListData item1 = new CommentListData();
+    private void comment() {
+        List<CommentList> objects = new ArrayList<CommentList>();
+        CommentList item1 = new CommentList();
+        item1.setsComment("image");
+        item1.setsTaste("１つ目〜");
 
-        CommentListData item2 = new CommentListData();
+        CommentList item2 = new CommentList();
+        item2.setsComment("もちごめ");
+        item2.setsTaste("The second");
 
-        CommentListData item3 = new CommentListData();
+        CommentList item3 = new CommentList();
+        item3.setsComment("popopo");
+        item3.setsTaste("Il terzo");
 
         objects.add(item1);
         objects.add(item2);
@@ -134,9 +158,10 @@ public class MainActivity extends ActionBarActivity {
 
         CustomAdapter customAdapater = new CustomAdapter(this, 0, objects);
 
-        ListView listView = (ListView)findViewById(R.id.comment_list);
+        ListView listView = (ListView) findViewById(R.id.comment_list);
         listView.setAdapter(customAdapater);
     }
+
 
 
     @Override

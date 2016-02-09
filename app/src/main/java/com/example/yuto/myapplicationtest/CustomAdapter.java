@@ -13,10 +13,10 @@ import java.util.List;
 /**
  * Created by yuto on 2016/01/31.
  */
-public class CustomAdapter extends ArrayAdapter<CommentListData> {
+public class CustomAdapter extends ArrayAdapter<CommentList> {
     private LayoutInflater layoutInflater_;
 
-    public CustomAdapter(Context context, int textViewResourceId, List<CommentListData> objects) {
+    public CustomAdapter(Context context, int textViewResourceId, List<CommentList> objects) {
         super(context, textViewResourceId, objects);
         layoutInflater_ = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -24,7 +24,7 @@ public class CustomAdapter extends ArrayAdapter<CommentListData> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // 特定の行(position)のデータを得る
-        CommentListData item = (CommentListData)getItem(position);
+        CommentList item = (CommentList)getItem(position);
 
         // convertViewは使い回しされている可能性があるのでnullの時だけ新しく作る
         if (null == convertView) {

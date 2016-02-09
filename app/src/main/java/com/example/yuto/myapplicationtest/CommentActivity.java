@@ -21,16 +21,16 @@ public class CommentActivity extends Activity {
         setContentView(R.layout.comment);
 
         // データの作成
-        List<CommentListData> objects = new ArrayList<CommentListData>();
-        CommentListData item1 = new CommentListData();
+        List<CommentList> objects = new ArrayList<CommentList>();
+        CommentList item1 = new CommentList();
         item1.setsComment("image");
         item1.setsTaste("１つ目〜");
 
-        CommentListData item2 = new CommentListData();
+        CommentList item2 = new CommentList();
         item2.setsComment("もちごめ");
         item2.setsTaste("The second");
 
-        CommentListData item3 = new CommentListData();
+        CommentList item3 = new CommentList();
         item3.setsComment("popopo");
         item3.setsTaste("Il terzo");
 
